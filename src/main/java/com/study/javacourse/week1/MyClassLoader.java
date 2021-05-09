@@ -29,7 +29,7 @@ public class MyClassLoader extends ClassLoader {
         String resourcePath = name.replace(".", "/");
         // 文件后缀
         final String suffix = ".xlass";
-        // 获取输入流
+        // 获取输入流，相对路径，第一周的作业放在week1目录下
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("week1/" + resourcePath + suffix);
         try {
             // 读取数据
@@ -77,6 +77,11 @@ public class MyClassLoader extends ClassLoader {
         }
     }
 
+    /**
+     * 主方法
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         // 相关参数
         final String className = "Hello";
