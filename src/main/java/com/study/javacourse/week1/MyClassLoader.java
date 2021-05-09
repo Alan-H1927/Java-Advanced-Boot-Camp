@@ -1,8 +1,5 @@
 package com.study.javacourse.week1;
 
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import sun.misc.Resource;
-
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
