@@ -1,0 +1,8 @@
+Java HotSpot(TM) 64-Bit Server VM (25.152-b16) for windows-amd64 JRE (1.8.0_152-b16), built on Sep 14 2017 02:29:36 by "java_re" with MS VC++ 10.0 (VS2010)
+Memory: 4k page, physical 16676436k(7706696k free), swap 19166804k(6265976k free)
+CommandLine flags: -XX:InitialHeapSize=2147483648 -XX:MaxHeapSize=2147483648 -XX:MaxNewSize=697933824 -XX:MaxTenuringThreshold=6 -XX:NewSize=697933824 -XX:OldPLABSize=16 -XX:OldSize=1395867648 -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:-UseLargePagesIndividualAllocation -XX:+UseParNewGC 
+0.684: [GC (Allocation Failure) 0.684: [ParNew: 545344K->68096K(613440K), 0.0268003 secs] 545344K->149390K(2029056K), 0.0269687 secs] [Times: user=0.09 sys=0.14, real=0.03 secs] 
+0.791: [GC (Allocation Failure) 0.791: [ParNew: 613440K->68096K(613440K), 0.0365018 secs] 694734K->281746K(2029056K), 0.0366129 secs] [Times: user=0.08 sys=0.17, real=0.04 secs] 
+0.895: [GC (Allocation Failure) 0.895: [ParNew: 613440K->68096K(613440K), 0.0865337 secs] 827090K->409515K(2029056K), 0.0866118 secs] [Times: user=0.53 sys=0.09, real=0.09 secs] 
+1.061: [GC (Allocation Failure) 1.061: [ParNew: 613440K->68096K(613440K), 0.0840248 secs] 954859K->532344K(2029056K), 0.0841104 secs] [Times: user=0.45 sys=0.05, real=0.08 secs] 
+1.217: [GC (Allocation Failure) 1.217: [ParNew: 613440K->68096K(613440K), 0.0833425 secs] 1077688K->653386K(2029056K), 0.0834259 secs] [Times: user=0.52 sys=0.03, real=0.08 secs] 
