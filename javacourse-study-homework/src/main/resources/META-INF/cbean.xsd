@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.meht.com/schema/cbean"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.meht.com/schema/cbean"
+            elementFormDefault="qualified">
+
+    <xsd:complexType name="student">
+        <xsd:attribute name="id" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The unique identifier for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="name" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The name for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="sex" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The sex for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="school">
+        <xsd:attribute name="id" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The unique identifier for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="name" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The name for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="kclass">
+        <xsd:attribute name="id" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The unique identifier for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="name" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The name for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:element name="student">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ The service config ]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="school">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ The service config ]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="kclass">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ The service config ]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+</xsd:schema>

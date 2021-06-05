@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cbean="http://www.meht.com/schema/cbean"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.meht.com/schema/cbean
+       http://www.meht.com/schema/cbean/cbean.xsd">
+
+    <!--xmlns:cbean是自定义标签-->
+    <cbean:student id="1" name="student" sex="male"/>
+    <cbean:school id="2" name="school"/>
+    <cbean:kclass id="3" name="kclass"/>
+</beans>
