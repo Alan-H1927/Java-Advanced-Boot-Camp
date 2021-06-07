@@ -1,6 +1,6 @@
 package com.study.week5.hikari;
 
-import com.study.utils.properties.ResourceUtil;
+import com.study.properties.ResourceUtil;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 

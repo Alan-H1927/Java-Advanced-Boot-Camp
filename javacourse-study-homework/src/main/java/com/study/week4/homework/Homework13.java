@@ -1,8 +1,6 @@
 package com.study.week4.homework;
 
-
-
-import com.study.utils.thread.CommonThreadPool;
+import com.study.thread.CommonThreadPool;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -36,7 +34,7 @@ public class Homework13 {
 
         int result = 0;
         int i = 0;
-        while(result == 0){
+        while (result == 0) {
             System.out.println("循环" + i++);
             result = sumResult.get();
         }

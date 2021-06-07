@@ -18,9 +18,9 @@ public class JavacourseStudyHomeworkApplication {
 	private WebInfo webInfo;
 
 	public static void main(String[] args) {
-		logger.info("::--->JavacourseStudyHomeworkApplication begin start<---::");
+		logger.info("::--->JavacourseStudyHomeworkApplication start<---::");
 		SpringApplication.run(JavacourseStudyHomeworkApplication.class, args);
-		logger.info("::--->JavacourseStudyHomeworkApplication end start<---::");
+		logger.info("::--->JavacourseStudyHomeworkApplication end<---::");
 	}
 
 	@Bean

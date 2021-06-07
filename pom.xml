@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.study</groupId>
+    <groupId>com.javacourse</groupId>
     <artifactId>javacourse</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>javacourse</name>
@@ -23,6 +23,7 @@
 
     <modules>
         <module>javacourse-study-build</module>
+        <module>javacourse-study-utils</module>
         <module>javacourse-study-starter</module>
         <module>javacourse-study-homework</module>
     </modules>

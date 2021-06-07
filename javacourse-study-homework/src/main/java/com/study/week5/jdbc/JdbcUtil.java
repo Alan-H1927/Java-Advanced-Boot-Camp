@@ -1,6 +1,6 @@
 package com.study.week5.jdbc;
 
-import com.study.utils.properties.ResourceUtil;
+import com.study.properties.ResourceUtil;
 
 import java.sql.*;
 import java.util.ArrayList;

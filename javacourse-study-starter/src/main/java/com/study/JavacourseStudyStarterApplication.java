@@ -25,9 +25,9 @@ public class JavacourseStudyStarterApplication {
     private KclassInfo kclassInfo;
 
     public static void main(String[] args) {
-        logger.info("::--->JavacourseStudyStarterApplication begin start<---::");
+        logger.info("::--->JavacourseStudyStarterApplication start<---::");
         SpringApplication.run(JavacourseStudyStarterApplication.class, args);
-        logger.info("::--->JavacourseStudyStarterApplication end start<---::");
+        logger.info("::--->JavacourseStudyStarterApplication end<---::");
     }
 
     @Bean

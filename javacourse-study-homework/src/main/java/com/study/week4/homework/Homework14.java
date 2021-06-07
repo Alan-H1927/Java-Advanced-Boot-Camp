@@ -1,8 +1,7 @@
 package com.study.week4.homework;
 
 
-
-import com.study.utils.thread.CommonThreadPool;
+import com.study.thread.CommonThreadPool;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -29,7 +28,7 @@ public class Homework14 {
 
         int result = 0;
         int i = 0;
-        while(!future.isDone()){
+        while (!future.isDone()) {
             System.out.println("循环" + i++);
             result = future.get();
         }

@@ -1,4 +1,4 @@
-package com.study.utils.thread;
+package com.study.thread;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
