@@ -1,4 +1,8 @@
-package com.study.week5.hikari;
+package com.example.javacoursestudyhomework.week5.hikari;
+
+import com.study.week5.hikari.HikariUtil;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * //TODO 添加类/接口功能描述
@@ -6,8 +10,10 @@ package com.study.week5.hikari;
  * @author me-ht
  * @date 2021-06-05
  */
-public class HikariTest {
-    public static void main(String[] args) {
+public class TestHikari{
+
+    @Test
+    public void test() {
         String sqlCount = "SELECT count(1) FROM user";
         //查询总数
         int i = HikariUtil.executeCount(sqlCount, null);

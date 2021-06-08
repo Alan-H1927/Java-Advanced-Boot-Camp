@@ -1,4 +1,4 @@
-package com.study.week5;
+package com.example.javacoursestudyhomework.week5.spring;
 
 
 import com.study.week5.spring.bean.Kclass;
@@ -6,6 +6,7 @@ import com.study.week5.spring.bean.ManualSpringBean;
 import com.study.week5.spring.bean.School;
 import com.study.week5.spring.bean.Student;
 import com.study.week5.spring.manualwired.ManualSpringBeanConfig;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,9 +17,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author me-ht
  * @date 2021-06-01
  */
-public class TestMain {
+public class TestSpring {
 
-    public static void main(String[] args) {
+    @Test
+    public void test(){
         //注解
         annotationConfigBean();
         //自定义schema

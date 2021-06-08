@@ -1,4 +1,7 @@
-package com.study.week5.jdbc;
+package com.example.javacoursestudyhomework.week5.jdbc;
+
+import com.study.week5.jdbc.JdbcUtil;
+import org.junit.jupiter.api.Test;
 
 /**
  * //TODO 添加类/接口功能描述
@@ -6,8 +9,10 @@ package com.study.week5.jdbc;
  * @author me-ht
  * @date 2021-06-05
  */
-public class JdbcTest {
-    public static void main(String[] args) {
+public class TestJdbc {
+
+    @Test
+    public void test() {
         String sqlCount = "SELECT count(1) FROM user";
         //查询总数
         int i = JdbcUtil.executeCount(sqlCount, null);
@@ -30,6 +35,6 @@ public class JdbcTest {
         String sqlDelete = "DELETE FROM USER WHERE id IN (SELECT a.id FROM (SELECT * FROM USER ORDER BY id DESC LIMIT 1) AS a );";
         JdbcUtil.executeUpdate(sqlDelete, null);
         System.out.println("删除以后的数--->" + JdbcUtil.executeCount(sqlCount, null));
-
     }
+
 }
