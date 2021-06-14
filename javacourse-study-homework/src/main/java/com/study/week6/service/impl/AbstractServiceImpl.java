@@ -1,16 +1,14 @@
-package com.study;
+package com.study.week6.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * //TODO 添加类/接口功能描述
  *
  * @author me-ht
- * @date 2021-06-08
+ * @date 2021-06-14
  */
-@SpringBootTest
-public abstract class AbstractTest {
+public abstract class AbstractServiceImpl {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 }

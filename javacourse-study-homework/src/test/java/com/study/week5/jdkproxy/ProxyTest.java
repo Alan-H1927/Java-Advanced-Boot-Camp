@@ -1,8 +1,5 @@
-package com.example.javacoursestudyhomework.week5.jdkproxy;
+package com.study.week5.jdkproxy;
 
-import com.study.week5.jdkproxy.JdkAop;
-import com.study.week5.jdkproxy.JdkAopImpl;
-import com.study.week5.jdkproxy.JdkProxy;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Proxy;
@@ -13,13 +10,13 @@ import java.lang.reflect.Proxy;
  * @author me-ht
  * @date 2021-05-30
  */
-public class TestProxy {
+public class ProxyTest {
 
     @Test
     public void test() {
         JdkAopImpl jdkAopImpl = new JdkAopImpl();
         System.out.println("不使用动态代理：");
-        jdkAopImpl.aop(TestProxy.class.getSimpleName());
+        jdkAopImpl.aop(ProxyTest.class.getSimpleName());
         System.out.println("---分割线---");
 
         JdkProxy jdkProxy = new JdkProxy(jdkAopImpl);
@@ -27,7 +24,7 @@ public class TestProxy {
         Class<?>[] interfaces = jdkAopImpl.getClass().getInterfaces();
         JdkAop jdkAop = (JdkAop) Proxy.newProxyInstance(classLoader, interfaces, jdkProxy);
         System.out.println("使用动态代理：");
-        jdkAop.aop(TestProxy.class.getSimpleName());
+        jdkAop.aop(ProxyTest.class.getSimpleName());
     }
 
 }

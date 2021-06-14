@@ -1,4 +1,4 @@
-package com.example.javacoursestudyhomework.week5.spring;
+package com.study.week5.spring;
 
 
 import com.study.week5.spring.bean.Kclass;
@@ -17,10 +17,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author me-ht
  * @date 2021-06-01
  */
-public class TestSpring {
+public class SpringTest {
 
     @Test
-    public void test(){
+    public void test() {
         //注解
         annotationConfigBean();
         //自定义schema

@@ -2,6 +2,7 @@ package com.study;
 
 
 import com.study.week5.spring.autowired.WebInfo;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@MapperScan({"com.study.week6.mapper,com.study.week7.mapper"})
 public class JavacourseStudyHomeworkApplication {
 
 	private static final Logger logger = LoggerFactory.getLogger(JavacourseStudyHomeworkApplication.class);
