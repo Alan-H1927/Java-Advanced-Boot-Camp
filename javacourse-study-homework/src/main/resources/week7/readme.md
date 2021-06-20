@@ -13,3 +13,8 @@
 12.（选做）配置 MHA，模拟 master 宕机
 13.（选做）配置 MGR，模拟 master 宕机
 14.（选做）配置 Orchestrator，模拟 master 宕机，演练 UI 调整拓扑结构
+
+###
+2，完成
+3，完成
+9，完成

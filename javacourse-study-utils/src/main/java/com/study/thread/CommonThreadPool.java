@@ -15,7 +15,7 @@ public class CommonThreadPool {
     private CommonThreadPool() {
     }
 
-    private static final ThreadPoolExecutor POOL = new ThreadPoolExecutor(2, 8, 2, TimeUnit.SECONDS, new LinkedBlockingQueue<>(5), new CommonThreadFactory("Common"));
+    private static final ThreadPoolExecutor POOL = new ThreadPoolExecutor(8, 16, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new CommonThreadFactory("Common"));
 
 
     public static ThreadPoolExecutor get() {

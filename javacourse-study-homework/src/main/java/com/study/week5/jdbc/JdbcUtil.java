@@ -226,4 +226,48 @@ public class JdbcUtil {
         return count;
     }
 
+    /**
+     * 批量
+     *
+     * @param sql
+     * @param params
+     * @param count
+     * @return
+     * @throws SQLException
+     */
+    public static int executeBatchUpdate(String sql, Object[] params, int count) throws SQLException {
+        Connection conn = getConnection();
+        conn.setAutoCommit(false);
+        PreparedStatement ps = conn.prepareStatement(sql);
+        int row = 0;
+        try {
+            for (int i = 0; i < count; i++) {
+                try {
+                    if (params != null) {
+                        for (int j = 0; j < params.length; j++) {
+                            ps.setObject(j + 1, params[j]);
+                        }
+                    }
+                    ps.addBatch();
+                    if (i % 1000 == 0) {
+                        ps.executeBatch();
+                        conn.commit();
+                        ps.clearBatch();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            // 剩余数量不足1000
+            ps.executeBatch();
+            conn.commit();
+            ps.clearBatch();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(conn, ps, null);
+        }
+        return row;
+    }
+
 }

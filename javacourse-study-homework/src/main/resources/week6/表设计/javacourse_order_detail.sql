@@ -1,0 +1,30 @@
+-- javacourse.javacourse_order definition
+
+CREATE TABLE `javacourse_order_detail` (
+                                    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增物理主键',
+                                    `order_id` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '订单id',
+                                    `order_goods_id` varchar(64) NOT NULL COMMENT '订单商品ID',
+                                    `order_goods_count` int(11) NOT NULL COMMENT '订单明细商品数量',
+                                    `order_discount_reason` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '订单明细优惠原因',
+                                    `order_discount_amount` decimal(10,0) DEFAULT NULL COMMENT '订单明细优惠金额',
+                                    `order_actual_pay_amount` decimal(10,0) DEFAULT NULL COMMENT '订单明细实际付款金额',
+                                    `order_delivery_goods_time` datetime DEFAULT NULL COMMENT '订单明细发货时间',
+                                    `order_expect_arrive_time` datetime DEFAULT NULL COMMENT '订单明细预期到达时间',
+                                    `order_expect_delivery_time` datetime DEFAULT NULL COMMENT '订单明细期望配送时间',
+                                    `order_actual_delivery_time` datetime DEFAULT NULL COMMENT '订单明细实际配送时间',
+                                    `order_receive_person` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '订单明细收货人',
+                                    `order_receive_person_phone_number` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '订单明细收货人手机号',
+                                    `order_receive_address` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '订单明细收货地址（地址表ID）',
+                                    `order_receive_time` datetime DEFAULT NULL COMMENT '订单明细收货时间',
+                                    `order_transport_fee` decimal(10,0) DEFAULT NULL COMMENT '订单明细运费',
+                                    `order_logistics_id` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '订单明细物流编号（物流表ID）',
+                                    `order_pay_id` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '订单明细支付单号（支付号ID）',
+                                    `order_transaction_id` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '订单明细交易单号（交易号ID）',
+                                    `create_person` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '创建人',
+                                    `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                                    `create_machine` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '创建机器IP',
+                                    `update_person` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '修改人',
+                                    `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+                                    `update_machine` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '修改机器IP',
+                                    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
