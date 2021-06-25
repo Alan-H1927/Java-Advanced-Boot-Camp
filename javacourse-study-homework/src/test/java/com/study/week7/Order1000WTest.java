@@ -47,7 +47,7 @@ public class Order1000WTest {
                 "'',\n" +
                 "'',\n" +
                 "'',\n" +
-                "'');\n";
+                "'')";
     }
 
     /**
@@ -228,6 +228,8 @@ public class Order1000WTest {
      * 查询时出现明显的等待，卡顿，电脑也卡顿
      * <p>
      * 空表：754秒
+     *
+     * 开启rewriteBatchedStatements=true：155秒
      */
     @Test
     public void hikariBatchOrderTestAndMultiThreadTest() {

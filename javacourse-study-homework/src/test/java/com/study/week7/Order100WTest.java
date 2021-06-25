@@ -47,7 +47,7 @@ public class Order100WTest {
                 "'',\n" +
                 "'',\n" +
                 "'',\n" +
-                "'');\n";
+                "'')";
     }
 
     /**
@@ -112,6 +112,8 @@ public class Order100WTest {
      * jdbc批量插入
      * <p>
      * 空表：155秒
+     *
+     * 开启rewriteBatchedStatements=true：21秒
      */
     @Test
     public void jdbcBatchOrderTest() {
@@ -141,6 +143,8 @@ public class Order100WTest {
      *
      * <p>
      * 空表：1980秒
+     *
+     * 开启rewriteBatchedStatements=true：434秒
      */
     @Test
     public void hikariOrderTest() {
@@ -171,6 +175,8 @@ public class Order100WTest {
      * <p>
      * <p>
      * 空表：432秒
+     *
+     * 开启rewriteBatchedStatements=true：
      */
     @Test
     public void hikariOrderTestAndMultiThreadTest() {
@@ -206,6 +212,8 @@ public class Order100WTest {
      * hikari连接池+批量插入，
      * <p>
      * 空表：163秒
+     *
+     * 开启rewriteBatchedStatements=true：34秒
      */
     @Test
     public void hikariBatchOrderTest() {
@@ -229,6 +237,8 @@ public class Order100WTest {
      * 查询时出现明显的等待
      * <p>
      * 空表：51秒
+     *
+     * 开启rewriteBatchedStatements=true：11秒
      */
     @Test
     public void hikariBatchOrderTestAndMultiThreadTest() {

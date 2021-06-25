@@ -1,5 +1,8 @@
 package com.study.properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -10,27 +13,40 @@ import java.util.ResourceBundle;
  * @date 2021-06-05
  */
 public class ResourceUtil {
+
+    private static final Logger logger = LoggerFactory.getLogger(ResourceUtil.class);
+
     private ResourceUtil() {
     }
 
-    private final static MyResourceBundleControl ctl = new MyResourceBundleControl();
+    private final static MyResourceBundleControl CTL = new MyResourceBundleControl();
 
-    private static ResourceBundle getBundle(String pro) {
-        return ResourceBundle.getBundle(pro, Locale.getDefault(), ctl);
+    private static ResourceBundle getBundle(String properties) {
+        return ResourceBundle.getBundle(properties, Locale.getDefault(), CTL);
     }
 
     /**
-     * 读取conf.properties
+     * 读取properties文件
      *
      * @param key
      * @return value
      */
     public static String getConf(String key) {
+        return getConf("application", key);
+    }
+
+    /**
+     * 读取properties文件
+     *
+     * @param key
+     * @return value
+     */
+    public static String getConf(String properties, String key) {
         String string = "";
         try {
-            string = getBundle("application").getString(key);
+            string = getBundle(properties).getString(key);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("ResourceUtil getConf error", e);
         }
         return string;
     }
@@ -39,7 +55,6 @@ public class ResourceUtil {
      * 重载控制器
      */
     private static class MyResourceBundleControl extends ResourceBundle.Control {
-
         /**
          * 如果在加载配置文件中时隔一秒钟文件内容将重新读取
          */

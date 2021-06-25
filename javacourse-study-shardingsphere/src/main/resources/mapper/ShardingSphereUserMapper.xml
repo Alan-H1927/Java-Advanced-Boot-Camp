@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.mapper.ShardingSphereUserMapper">
+    <resultMap id="BaseResultMap" type="com.study.entity.ShardingSphereUser">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="userId" jdbcType="VARCHAR" property="user_id"/>
+        <result column="userUsername" jdbcType="VARCHAR" property="user_username"/>
+        <result column="userPassword" jdbcType="VARCHAR" property="user_password"/>
+        <result column="userEmail" jdbcType="VARCHAR" property="user_email"/>
+        <result column="userPhoneNumber" jdbcType="VARCHAR" property="user_phone_number"/>
+        <result column="userStatus" jdbcType="VARCHAR" property="user_status"/>
+        <result column="createPerson" jdbcType="VARCHAR" property="create_person"/>
+        <result column="updatePerson" jdbcType="VARCHAR" property="update_person"/>
+
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , user_username, user_password, user_email, user_phone_number, user_status, create_person, update_person
+    </sql>
+    <select id="selectAllByMaster" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from javacourse_user
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from javacourse_user
+    </select>
+
+    <insert id="insert" parameterType="com.study.entity.ShardingSphereUser">
+        insert into javacourse_user (user_id, user_username, user_password, user_email, user_phone_number, user_status,
+                                     create_person, update_person)
+        values (#{userId,jdbcType=VARCHAR}, #{userUsername,jdbcType=VARCHAR},
+                #{userPassword,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userPhoneNumber,jdbcType=VARCHAR},
+                #{userStatus,jdbcType=VARCHAR}, #{createPerson,jdbcType=VARCHAR}, #{updatePerson,jdbcType=VARCHAR})
+    </insert>
+</mapper>

@@ -20,20 +20,20 @@ public class HikariTest {
 
         //插入
         String nameInsert = "name" + System.currentTimeMillis();
-        String sqlInsert = "INSERT INTO USER  (NAME) VALUES ('" + nameInsert + "');";
+        String sqlInsert = "INSERT INTO user  (NAME) VALUES ('" + nameInsert + "');";
 
         HikariUtil.executeUpdate(sqlInsert, null);
         System.out.println("插入以后的数--->" + HikariUtil.executeCount(sqlCount, null));
 
-        //修改
-        String nameUpdate = "name" + System.currentTimeMillis();
-        String sqlUpdate = "UPDATE USER SET NAME = '" + nameUpdate + "' WHERE id=1;";
-        HikariUtil.executeUpdate(sqlUpdate, null);
-        System.out.println("修改以后的数--->" + HikariUtil.executeCount(sqlCount, null));
-
-        //删除
-        String sqlDelete = "DELETE FROM USER WHERE id IN (SELECT a.id FROM (SELECT * FROM USER ORDER BY id DESC LIMIT 1) AS a );";
-        HikariUtil.executeUpdate(sqlDelete, null);
-        System.out.println("删除以后的数--->" + HikariUtil.executeCount(sqlCount, null));
+//        //修改
+//        String nameUpdate = "name" + System.currentTimeMillis();
+//        String sqlUpdate = "UPDATE user SET NAME = '" + nameUpdate + "' WHERE id=1;";
+//        HikariUtil.executeUpdate(sqlUpdate, null);
+//        System.out.println("修改以后的数--->" + HikariUtil.executeCount(sqlCount, null));
+//
+//        //删除
+//        String sqlDelete = "DELETE FROM user WHERE id IN (SELECT a.id FROM (SELECT * FROM user ORDER BY id DESC LIMIT 1) AS a );";
+//        HikariUtil.executeUpdate(sqlDelete, null);
+//        System.out.println("删除以后的数--->" + HikariUtil.executeCount(sqlCount, null));
     }
 }

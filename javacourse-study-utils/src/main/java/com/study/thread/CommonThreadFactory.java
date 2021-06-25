@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CommonThreadFactory implements ThreadFactory {
 
     private final AtomicInteger threadNumber = new AtomicInteger(1);
+
     private final String namePrefix;
 
     public CommonThreadFactory(String namePrefix) {

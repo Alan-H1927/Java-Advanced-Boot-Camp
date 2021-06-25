@@ -22,10 +22,19 @@
     </properties>
 
     <modules>
+        <!--依赖-->
         <module>javacourse-study-build</module>
+        <!--课程-->
         <module>javacourse-study-course</module>
+        <!--作业-->
         <module>javacourse-study-homework</module>
+        <!--shardingsphere-->
+        <module>javacourse-study-shardingsphere</module>
+        <!--spring-->
+        <module>javacourse-study-spring</module>
+        <!--starter-->
         <module>javacourse-study-starter</module>
+        <!--工具-->
         <module>javacourse-study-utils</module>
     </modules>
 
@@ -54,10 +63,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration><!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.study.JavacourseStudyHomeworkApplication</mainClass>
-                    <layout>ZIP</layout>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
