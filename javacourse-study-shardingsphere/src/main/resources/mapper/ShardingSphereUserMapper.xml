@@ -17,7 +17,7 @@
         id
         , user_username, user_password, user_email, user_phone_number, user_status, create_person, update_person
     </sql>
-    <select id="selectAllByMaster" resultMap="BaseResultMap">
+    <select id="selectAllOnlyByMaster" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from javacourse_user
@@ -35,4 +35,12 @@
                 #{userPassword,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userPhoneNumber,jdbcType=VARCHAR},
                 #{userStatus,jdbcType=VARCHAR}, #{createPerson,jdbcType=VARCHAR}, #{updatePerson,jdbcType=VARCHAR})
     </insert>
+
+    <delete id="deleteAll">
+        DELETE FROM javacourse_user
+    </delete>
+
+    <update id="truncate">
+        truncate table javacourse_user
+    </update>
 </mapper>

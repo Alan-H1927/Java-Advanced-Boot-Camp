@@ -30,4 +30,12 @@ public interface ShardingSphereUserMapper {
      * 获取所有用户
      */
     List<ShardingSphereUser> selectAll();
+    /**
+     * 删除全表
+     */
+    void truncate();
+    /**
+     * 删除全表
+     */
+    void deleteAll();
 }

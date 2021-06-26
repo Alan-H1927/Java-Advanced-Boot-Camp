@@ -20,9 +20,22 @@ public interface ShardingSphereUserService {
      */
     List<ShardingSphereUser> listOnlyByMaster();
     /**
-     * 单个 保存用户信息
+     * 单个保存用户信息
      *
      * @param user
      */
     String saveOne(ShardingSphereUser user);
+
+    /**
+     * 删除全表
+     *
+     *
+     */
+    void truncate();
+    /**
+     * 删除全表
+     *
+     *
+     */
+    void deleteAll();
 }

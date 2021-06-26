@@ -41,4 +41,14 @@ public class ShardingSphereUserServiceImpl implements ShardingSphereUserService 
         shardingSphereUserMapper.insert(user);
         return "保存成功";
     }
+
+    @Override
+    public void deleteAll() {
+        shardingSphereUserMapper.deleteAll();
+    }
+
+    @Override
+    public void truncate() {
+        shardingSphereUserMapper.truncate();
+    }
 }
