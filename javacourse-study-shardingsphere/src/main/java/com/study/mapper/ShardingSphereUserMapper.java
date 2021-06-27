@@ -1,7 +1,7 @@
 package com.study.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.study.entity.ShardingSphereUser;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -11,15 +11,14 @@ import java.util.List;
  * @author me-ht
  * @date 2021-06-23
  */
-@Mapper
-public interface ShardingSphereUserMapper {
+public interface ShardingSphereUserMapper extends BaseMapper<ShardingSphereUser> {
     /**
      * 插入一条记录
      *
      * @param record 实体对象
      * @return 更新条目数
      */
-    int insert(ShardingSphereUser record);
+    int insertOne(ShardingSphereUser record);
 
     /**
      * 从主库获取所有用户
@@ -30,12 +29,19 @@ public interface ShardingSphereUserMapper {
      * 获取所有用户
      */
     List<ShardingSphereUser> selectAll();
+
     /**
      * 删除全表
      */
     void truncate();
+
     /**
      * 删除全表
      */
     void deleteAll();
+
+    /**
+     * 修改
+     */
+    int updateOne(ShardingSphereUser user);
 }

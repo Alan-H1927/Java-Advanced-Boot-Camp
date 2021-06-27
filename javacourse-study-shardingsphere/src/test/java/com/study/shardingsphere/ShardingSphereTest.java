@@ -2,12 +2,12 @@ package com.study.shardingsphere;
 
 import com.study.AbstractTest;
 import com.study.entity.ShardingSphereUser;
-import com.study.id.UserIdUtil;
 import com.study.service.ShardingSphereUserService;
+import com.study.service.XAShardingSphereService;
+import com.study.service.XAUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -20,6 +20,12 @@ public class ShardingSphereTest extends AbstractTest {
 
     @Autowired
     private ShardingSphereUserService shardingSphereUserService;
+
+    @Autowired
+    private XAShardingSphereService xAShardingSphereService;
+
+    @Autowired
+    private XAUserService xAUserService;
 
     /**
      * 读写分离测试
@@ -76,7 +82,7 @@ public class ShardingSphereTest extends AbstractTest {
      * readAndWriteAndShardingDatabaseAndTableTest一共有4个动作，16个库
      * 写操作日志为：c,d
      * 读操作日志为：a,b,e
-     *
+     * <p>
      * javacourse-0应出现64次（a,c,e）
      * javacourse-1应出现64次（a,c,e）
      * javacourse-2应出现48次（b,d）
@@ -109,5 +115,25 @@ public class ShardingSphereTest extends AbstractTest {
         logger.info("d，插入完成后读取库数据size is [{}]", shardingSphereUserService.list().size());
         //应出现16次javacourse-0与16次javacourse-1
         logger.info("e，插入完成后强制走主库数据size is [{}]", shardingSphereUserService.listOnlyByMaster().size());
+    }
+
+    /**
+     * 分布式事务测试
+     */
+    @Test
+    public void xaTest() {
+        int count = xAUserService.selectAll();
+        logger.info("a，插入前读取库数据size is [{}]", count);
+        xAUserService.insert(10);
+        count = xAUserService.selectAll();
+        logger.info("a，插入完成后读取库数据size is [{}]", count);
+
+        try {
+            xAUserService.insertFailed(10);
+        } catch (Exception e) {
+
+        }
+        count = xAUserService.selectAll();
+        logger.info("b，插入失败后读取库数据size is [{}]", count);
     }
 }

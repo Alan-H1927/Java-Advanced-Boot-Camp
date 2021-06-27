@@ -1,10 +1,10 @@
 package com.study.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.study.entity.ShardingSphereUser;
 import com.study.mapper.ShardingSphereUserMapper;
 import com.study.service.ShardingSphereUserService;
 import org.apache.shardingsphere.api.hint.HintManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,21 +16,18 @@ import java.util.List;
  * @date 2021-06-23
  */
 @Service
-public class ShardingSphereUserServiceImpl implements ShardingSphereUserService {
-
-    @Autowired
-    private ShardingSphereUserMapper shardingSphereUserMapper;
+public class ShardingSphereUserServiceImpl extends ServiceImpl<ShardingSphereUserMapper, ShardingSphereUser> implements ShardingSphereUserService {
 
     @Override
     public List<ShardingSphereUser> list() {
-        return shardingSphereUserMapper.selectAll();
+        return this.baseMapper.selectAll();
     }
 
     @Override
     public List<ShardingSphereUser> listOnlyByMaster() {
         // 强制路由主库
         HintManager.getInstance().setMasterRouteOnly();
-        List<ShardingSphereUser> shardingSphereUsers = shardingSphereUserMapper.selectAllOnlyByMaster();
+        List<ShardingSphereUser> shardingSphereUsers = this.baseMapper.selectAllOnlyByMaster();
         HintManager.clear();
         return shardingSphereUsers;
     }
@@ -38,17 +35,17 @@ public class ShardingSphereUserServiceImpl implements ShardingSphereUserService 
     @Override
     public String saveOne(ShardingSphereUser user) {
         user.setUserStatus("1");
-        shardingSphereUserMapper.insert(user);
+        this.baseMapper.insertOne(user);
         return "保存成功";
     }
 
     @Override
     public void deleteAll() {
-        shardingSphereUserMapper.deleteAll();
+        this.baseMapper.deleteAll();
     }
 
     @Override
     public void truncate() {
-        shardingSphereUserMapper.truncate();
+        this.baseMapper.truncate();
     }
 }

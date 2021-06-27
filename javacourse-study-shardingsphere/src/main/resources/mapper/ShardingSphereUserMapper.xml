@@ -11,7 +11,6 @@
         <result column="userStatus" jdbcType="VARCHAR" property="user_status"/>
         <result column="createPerson" jdbcType="VARCHAR" property="create_person"/>
         <result column="updatePerson" jdbcType="VARCHAR" property="update_person"/>
-
     </resultMap>
     <sql id="Base_Column_List">
         id
@@ -28,7 +27,7 @@
         from javacourse_user
     </select>
 
-    <insert id="insert" parameterType="com.study.entity.ShardingSphereUser">
+    <insert id="insertOne" parameterType="com.study.entity.ShardingSphereUser">
         insert into javacourse_user (user_id, user_username, user_password, user_email, user_phone_number, user_status,
                                      create_person, update_person)
         values (#{userId,jdbcType=VARCHAR}, #{userUsername,jdbcType=VARCHAR},
@@ -42,5 +41,9 @@
 
     <update id="truncate">
         truncate table javacourse_user
+    </update>
+
+    <update id="updateOne" parameterType="com.study.entity.ShardingSphereUser">
+        update javacourse_user set user_name = #{userPassword,jdbcType=VARCHAR} where user_id = #{userId,jdbcType=VARCHAR}
     </update>
 </mapper>

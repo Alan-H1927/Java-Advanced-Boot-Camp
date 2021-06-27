@@ -2,6 +2,8 @@ package com.study.shardingalgorithm.table;
 
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 
@@ -13,12 +15,14 @@ import java.util.Collection;
  */
 public class TableUserIdShardingAlgorithm implements PreciseShardingAlgorithm<String> {
 
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
     public TableUserIdShardingAlgorithm() {
     }
 
     @Override
     public String doSharding(Collection<String> collection, PreciseShardingValue<String> preciseShardingValue) {
-        System.out.println("TableUserIdShardingAlgorithm begin");
+        logger.info("TableUserIdShardingAlgorithm begin");
         int value = Integer.parseInt(preciseShardingValue.getValue());
         return preciseShardingValue.getLogicTableName() + "_" + value;
     }
