@@ -5,6 +5,8 @@ import com.study.protocol.RpcProtocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ import java.util.List;
  */
 public class RpcDecoder extends ByteToMessageDecoder {
 
+    private static final Logger logger = LoggerFactory.getLogger(RpcDecoder.class);
+
     /**
      * <pre>
      * 协议开始的标准head_data，int类型，占据4个字节.
@@ -25,7 +29,8 @@ public class RpcDecoder extends ByteToMessageDecoder {
     public final int BASE_LENGTH = 4 + 4;
 
     @Override
-    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
+    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) {
+        logger.info("进入RpcDecoder");
         // 可读长度必须大于基本长度
         if (byteBuf.readableBytes() >= BASE_LENGTH) {
             // 防止socket字节流攻击

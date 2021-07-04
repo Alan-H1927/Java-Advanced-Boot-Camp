@@ -42,6 +42,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws UnsupportedEncodingException {
+        logger.info("进入NettyServerHandler");
         // 用于获取客户端发来的数据信息
         RpcProtocol rpcProtocol = (RpcProtocol) msg;
         //获取请求参数内容

@@ -3,18 +3,12 @@ package com.study.client;
 import com.alibaba.fastjson.JSON;
 import com.study.api.RpcResponse;
 import com.study.protocol.RpcProtocol;
-import com.study.util.ConvertUtil;
-import com.study.util.CuratorUtil;
-import com.study.util.RpcNodeUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
-import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -52,6 +46,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
+        logger.info("进入NettyClientHandler");
         // 用于获取服务端发来的数据信息
         RpcProtocol rpcProtocol = (RpcProtocol) msg;
         String content = new String(rpcProtocol.getContent(), CharsetUtil.UTF_8);

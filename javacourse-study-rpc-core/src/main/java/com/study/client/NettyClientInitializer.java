@@ -16,9 +16,13 @@ public class NettyClientInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
     public void initChannel(SocketChannel socketChannel) {
+        //执行顺序如下
+        //1，客户端发送请求，先编码RpcEncoder
+        //2，编码完发送请求以后会收到服务端的返回，所以要解码RpcDecoder
+        //3，解码完以后要处理业务逻辑NettyClientHandler
         ChannelPipeline channelPipeline = socketChannel.pipeline();
-        channelPipeline.addLast(new RpcEncoder());
         channelPipeline.addLast(new RpcDecoder());
+        channelPipeline.addLast(new RpcEncoder());
         channelPipeline.addLast("clientHandler",new NettyClientHandler());
     }
 }
