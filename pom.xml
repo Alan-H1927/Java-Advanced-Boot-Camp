@@ -36,6 +36,12 @@
         <module>javacourse-study-starter</module>
         <!--工具-->
         <module>javacourse-study-utils</module>
+        <!--自定义rpc-->
+        <module>javacourse-study-rpc-client</module>
+        <module>javacourse-study-rpc-core</module>
+        <module>javacourse-study-rpc-server</module>
+        <!--dubbo-->
+        <module>javacourse-study-dubbo</module>
     </modules>
 
     <dependencies>
