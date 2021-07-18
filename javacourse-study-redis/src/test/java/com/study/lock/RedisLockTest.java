@@ -33,9 +33,10 @@ public class RedisLockTest {
                 public void run() {
                     String id = UUID.randomUUID().toString().replace("-", "");
                     try {
-                        RedisLock.LOCK.lock(id);
-                        amount -= 1;
-                        System.out.printf("库存减一 amount: %d\n", amount);
+                        if(RedisLock.LOCK.lock(id)){
+                            amount -= 1;
+                            System.out.printf("库存减一 amount: %d\n", amount);
+                        }
                     } finally {
                         RedisLock.LOCK.unlock(id);
                     }
