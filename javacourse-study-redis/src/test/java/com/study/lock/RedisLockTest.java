@@ -4,6 +4,7 @@ import com.study.client.JedisUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -24,7 +25,7 @@ public class RedisLockTest {
         System.out.println("redis get =" + JedisUtil.get(RedisLock.LOCK_KEY));
 
         int clientCount = 10;
-
+        CountDownLatch countDownLatch = new CountDownLatch(clientCount);
         ExecutorService executorService = Executors.newFixedThreadPool(clientCount);
         long start = System.currentTimeMillis();
         for (int i = 0; i < clientCount; i++) {
@@ -37,15 +38,15 @@ public class RedisLockTest {
                             amount -= 1;
                             System.out.printf("库存减一 amount: %d\n", amount);
                         }
+                        countDownLatch.countDown();
                     } finally {
                         RedisLock.LOCK.unlock(id);
                     }
                 }
             });
         }
+        countDownLatch.await();
         long end = System.currentTimeMillis();
         System.out.println("执行线程数:" + clientCount + ",总耗时:" + (end - start));
-
-        Thread.sleep(999999999);
     }
 }
