@@ -18,19 +18,20 @@ import java.util.concurrent.atomic.LongAdder;
  * @date 2021-05-09
  */
 public class GCLogAnalysis {
+
     private static Random random = new Random();
 
     public static void main(String[] args) throws InterruptedException {
         // 当前毫秒时间戳
         long startMillis = System.currentTimeMillis();
         // 持续运行毫秒数; 可根据需要进行修改
-        long timeoutMillis = TimeUnit.SECONDS.toMillis(1);
+        long timeoutMillis = TimeUnit.SECONDS.toMillis(30);
         // 结束时间戳
         long endMillis = startMillis + timeoutMillis;
         LongAdder counter = new LongAdder();
         System.out.println("正在执行...");
         // 缓存一部分对象; 进入老年代
-        int cacheSize = 2000;
+        int cacheSize = 5000;
         Object[] cachedGarbage = new Object[cacheSize];
         // 在此时间范围内,持续循环
         while (System.currentTimeMillis() < endMillis) {

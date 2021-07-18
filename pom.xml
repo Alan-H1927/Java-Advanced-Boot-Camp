@@ -42,6 +42,8 @@
         <module>javacourse-study-rpc-server</module>
         <!--dubbo-->
         <module>javacourse-study-dubbo</module>
+        <!--redis-->
+        <module>javacourse-study-redis</module>
     </modules>
 
     <dependencies>

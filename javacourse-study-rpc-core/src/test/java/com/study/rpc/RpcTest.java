@@ -2,6 +2,9 @@ package com.study.rpc;
 
 import com.study.client.NettyClient;
 import com.study.server.NettyServer;
+import com.study.util.CuratorUtil;
+import com.study.util.RpcNodeUtil;
+import org.apache.curator.framework.CuratorFramework;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -12,15 +15,23 @@ import org.junit.jupiter.api.Test;
  */
 public class RpcTest {
 
-//    @Test
-//    public void rpcServerTest() {
-//        NettyServer nettyServer = new NettyServer();
-//        nettyServer.run();
-//    }
-//
-//    @Test
-//    public void rpcClientTest() {
-//        NettyClient nettyClient = new NettyClient();
-//        nettyClient.run();
-//    }
+    @Test
+    public void rpcServerTest() {
+        NettyServer nettyServer = new NettyServer();
+        nettyServer.run();
+    }
+
+    @Test
+    public void rpcClientTest() throws Exception {
+        CuratorFramework client = CuratorUtil.getClient();
+        CuratorUtil.deleteNode(RpcNodeUtil.buildProviderNode());
+        CuratorUtil.createPersistentNode(RpcNodeUtil.buildProviderNode(),"test");
+        System.out.println("--->begin");
+        System.out.println(CuratorUtil.getNodeData(RpcNodeUtil.buildProviderNode()));
+        System.out.println("--->");
+        Thread.sleep(4000);
+        System.out.println(CuratorUtil.getNodeData(RpcNodeUtil.buildProviderNode()));
+        System.out.println("--->end");
+
+    }
 }
